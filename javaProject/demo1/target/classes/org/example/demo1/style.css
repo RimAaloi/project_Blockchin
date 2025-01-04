@@ -1,0 +1,162 @@
+/* Define animations */
+@keyframes slideIn {
+    from {
+        -fx-translate-y: -10px;
+        -fx-opacity: 0;
+    }
+    to {
+        -fx-translate-y: 0px;
+        -fx-opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        -fx-opacity: 0;
+    }
+    to {
+        -fx-opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        -fx-scale-x: 0.95;
+        -fx-scale-y: 0.95;
+    }
+    to {
+        -fx-scale-x: 1;
+        -fx-scale-y: 1;
+    }
+}
+
+/* Apply animations to elements */
+.tab-pane {
+    -fx-tab-min-height: 35px;
+    -fx-tab-max-height: 35px;
+}
+
+.tab {
+    -fx-background-color: #34495e;
+    -fx-padding: 0 15px;
+    -fx-cursor: hand;
+    -fx-transition: -fx-background-color 0.3s;
+}
+
+.tab:selected {
+    -fx-background-color: #3498db;
+    -animation: scaleIn 0.3s ease-out;
+}
+
+/* Animated table styles */
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-transition: -fx-background-color 0.2s;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #e2e8f0;
+    -fx-transition: -fx-background-color 0.2s;
+    -fx-scale-x: 1.003;
+    -fx-scale-y: 1.003;
+}
+
+.table-row-cell:selected {
+    -animation: scaleIn 0.2s ease-out;
+    -fx-background-color: #3498db20;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #2980b9;
+    -fx-font-weight: bold;
+}
+
+/* Animated buttons */
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-transition: -fx-background-color 0.2s, -fx-scale-x 0.1s, -fx-scale-y 0.1s;
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+    -fx-background-color: #2471a3;
+}
+
+/* Animated text fields */
+.text-field {
+    -fx-background-color: white;
+    -fx-padding: 8px;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-transition: -fx-border-color 0.3s, -fx-effect 0.3s;
+}
+
+.text-field:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(gaussian, rgba(52, 152, 219, 0.2), 5, 0, 0, 0);
+    -animation: scaleIn 0.2s ease-out;
+}
+
+/* Tab content animation */
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -animation: fadeIn 0.3s ease-out;
+}
+
+/* Table cell animations */
+.table-cell {
+    -fx-transition: -fx-padding 0.2s;
+}
+
+.table-cell:hover {
+    -fx-padding: 8px 12px;
+}
+
+/* Additional button variants with animations */
+.button:containsText("Delete") {
+    -fx-background-color: #e74c3c;
+}
+
+.button:containsText("Delete"):hover {
+    -fx-background-color: #c0392b;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:containsText("Stock In") {
+    -fx-background-color: #2ecc71;
+}
+
+.button:containsText("Stock In"):hover {
+    -fx-background-color: #27ae60;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:containsText("Stock Out") {
+    -fx-background-color: #f1c40f;
+}
+
+.button:containsText("Stock Out"):hover {
+    -fx-background-color: #f39c12;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Add animation to newly added rows */
+.table-row-cell:new {
+    -animation: slideIn 0.3s ease-out;
+}
